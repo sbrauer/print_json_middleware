@@ -6,8 +6,10 @@ class PrintJsonMiddleware(object):
     If a special query parameter (by default "pj", for "Print JSON")
     is found in the query string, assume the response body contains JSON data
     which should be "printed" to the response as text/plain.
-    If the parameter has a positive integer value, treat it as an indent value
-    and sort the keys.
+    If the parameter has no value, the body is not touched (only the
+    Content-Type header changes).
+    If the parameter has a positive integer value, prettyprint the JSON
+    (sort the keys and treat the parm value as an indent value).
     Note that the parameter is removed from the request query string
     before the middleware invokes the wrapped application.
     """
