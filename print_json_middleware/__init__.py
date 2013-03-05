@@ -43,3 +43,20 @@ class PrintJsonMiddleware(object):
                                        indent=indent,
                                        sort_keys=True)
         return resp(environ, start_response)
+
+def filter_factory(conf, **kwargs):
+    """
+    Factory for creating :mod:`paste` filters.  Full documentation can be found
+    in `the paste docs <http://pythonpaste.org/deploy/#paste-filter-factory>`_.
+    """
+    def filter(app):
+        return PrintJsonMiddleware(app, **kwargs)
+    return filter
+
+
+def filter_app_factory(app, conf, **kwargs):
+    """
+    Creates a single :mod:`paste` filter.  Full documentation can be found in
+    `the paste docs <http://pythonpaste.org/deploy/#paste-filter-factory>`_.
+    """
+    return PrintJsonMiddleware(app, **kwargs)
