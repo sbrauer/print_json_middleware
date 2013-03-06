@@ -33,7 +33,7 @@ Then find the application section (typically under the header ``[app:main]``) an
 
 If you'd rather use some other parameter name than "pj", specify it in the ``[filter:print_json]`` section::
 
-    parm = showjson
+    parm = whatever
 
 As an alternative to Paster configuration, you could do the application wrapping in Python code::
 
@@ -42,4 +42,4 @@ As an alternative to Paster configuration, you could do the application wrapping
 
 If you'd rather use some other parameter name than "pj", pass it as a second argument::
 
-    application = PrintJsonMiddleware(application, "showjson")
+    application = PrintJsonMiddleware(application, "whatever")
