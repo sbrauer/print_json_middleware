@@ -22,7 +22,7 @@ Note that the parameter is removed from the request query string before the midd
 Setup
 -----
 
-If using Paster, edit your .ini file and add a new filter section::
+Edit your Paste .ini file and add a new filter section::
 
     [filter:print_json]
     use = egg:print_json_middleware#print_json
@@ -35,7 +35,7 @@ If you'd rather use some other parameter name than "pj", specify it in the ``[fi
 
     parm = whatever
 
-As an alternative to Paster configuration, you could do the application wrapping in Python code::
+As an alternative to Paste configuration, you could do the application wrapping in Python code::
 
     from print_json_middleware import PrintJsonMiddleware
     application = PrintJsonMiddleware(application)
